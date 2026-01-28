@@ -1,1 +1,1 @@
-Hello, DH — this site will document my critical making this semester.
+Hello, DH — this site will document my critical making this semester. 
