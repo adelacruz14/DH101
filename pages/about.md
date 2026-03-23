@@ -1,3 +1,3 @@
 # About Me
 
-Introduce yourself and your interests.
+I'm Ava!
