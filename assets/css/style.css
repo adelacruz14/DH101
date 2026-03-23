@@ -39,6 +39,9 @@ body{
 .make-item h4{margin:0 0 8px 0;font-size:14px;font-weight:600;color:var(--accent-2)}
 .image-caption{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.4;text-align:left}
 .makes-gallery img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(126,207,255,0.12)}
+.embeds-container{margin-top:24px;display:flex;flex-direction:column;gap:20px;align-items:center}
+.embeds-container h3{margin:16px 0 0 0;color:var(--accent-2);font-size:18px;width:100%;text-align:center}
+.embeds-container iframe{border-radius:8px;border:1px solid rgba(126,207,255,0.12);max-width:100%;height:auto}
 .card{background:linear-gradient(180deg, rgba(12,35,68,0.9), rgba(10,30,60,0.9));padding:18px;border-radius:var(--radius);border:1px solid rgba(126,207,255,0.06)}
 .lead{color:var(--muted);margin-top:8px}
 .reflection h4{margin:0 0 8px}
