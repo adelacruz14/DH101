@@ -31,7 +31,7 @@ body{
 .reflections-dropdown:hover{background:rgba(126,207,255,0.08);color:var(--text)}
 .reflections-dropdown:focus{outline:2px solid var(--accent-2);outline-offset:2px}
 .affirmation{margin:6px 0 0;padding:8px 12px;background:linear-gradient(90deg,rgba(126,207,255,0.06),rgba(110,92,255,0.04));border-radius:8px;color:var(--text);font-weight:600}
-.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px;grid-template-areas:"hero hero" "makes reflection"}
+.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px;grid-template-areas:"hero reflection" "makes makes"}
 .hero{grid-area:hero}
 .makes-section{grid-area:makes;background:linear-gradient(180deg, rgba(12,35,68,0.9), rgba(10,30,60,0.9));padding:18px;border-radius:var(--radius);border:1px solid rgba(126,207,255,0.06)}
 .card:nth-of-type(1){grid-area:reflection}
