@@ -27,6 +27,7 @@ body{
 .site-nav a{background:transparent;color:var(--accent-2);text-decoration:none;font-weight:500;border-radius:6px;padding:8px 12px;font-size:14px;transition:all 0.2s ease;cursor:pointer}
 .site-nav a:hover{background:rgba(126,207,255,0.08);color:var(--text)}
 .reflections-dropdown{background:transparent;color:var(--accent-2);border:none;border-radius:6px;padding:8px 12px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s ease}
+.reflections-dropdown option{color:rgb(255, 255, 255);background-color:var(--card)}
 .reflections-dropdown:hover{background:rgba(126,207,255,0.08);color:var(--text)}
 .reflections-dropdown:focus{outline:2px solid var(--accent-2);outline-offset:2px}
 .affirmation{margin:6px 0 0;padding:8px 12px;background:linear-gradient(90deg,rgba(126,207,255,0.06),rgba(110,92,255,0.04));border-radius:8px;color:var(--text);font-weight:600}
