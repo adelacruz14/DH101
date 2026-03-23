@@ -45,6 +45,7 @@ body{
 .embed-caption{font-size:12px;color:var(--muted);margin-top:6px;margin-bottom:12px;line-height:1.4;text-align:center;max-width:700px}
 .embeds-container iframe{border-radius:8px;border:1px solid rgba(126,207,255,0.12);max-width:100%;height:auto}
 .card{background:linear-gradient(180deg, rgba(12,35,68,0.9), rgba(10,30,60,0.9));padding:18px;border-radius:var(--radius);border:1px solid rgba(126,207,255,0.06)}
+.reflection-card{padding:12px}
 .lead{color:var(--muted);margin-top:8px}
 .reflection h4{margin:0 0 8px}
 .actions{margin-top:12px}
