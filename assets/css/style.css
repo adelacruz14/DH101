@@ -21,7 +21,11 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .container{max-width:1000px;margin:0 auto;padding:28px}
-.site-header{backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border-bottom:1px solid rgba(126,207,255,0.06)}
+.site-header{
+  backdrop-filter:blur(6px);
+  background:linear-gradient(180deg, rgba(8,43,88,0.98), rgba(11,58,107,0.94));
+  border-bottom:1px solid rgba(126,207,255,0.14);
+}
 .site-title{margin:0;padding:10px 0;font-weight:600}
 .site-nav{display:flex;gap:12px;align-items:center}
 .site-nav a{background:transparent;color:var(--accent-2);text-decoration:none;font-weight:500;border-radius:6px;padding:8px 12px;font-size:14px;transition:all 0.2s ease;cursor:pointer}
