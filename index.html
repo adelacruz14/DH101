@@ -114,6 +114,16 @@
       <small>© DH101 — Course site. Files live in the repository root under `pages/`, `reflections/`, and `makes/`.</small>
     </div>
   </footer>
+  <script>
+    const siteHeader = document.querySelector('.site-header');
 
+    function updateHeaderState() {
+      if (!siteHeader) return;
+      siteHeader.classList.toggle('is-compact', window.scrollY > 32);
+    }
+
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+  </script>
 </body>
 </html>
