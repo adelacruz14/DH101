@@ -41,7 +41,7 @@ body{
 .makes-section h2{text-align:center}
 .make-item{text-align:center;max-width:280px}
 #make3{max-width:500px}
-.make-item h4{margin:0 0 8px 0;font-size:14px;font-weight:600;color:var(--accent-2)}
+.make-item h4{margin:16px 0 0 0;color:var(--accent-2);font-size:18px;width:100%;text-align:center}
 .image-caption{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.4;text-align:left}
 .makes-gallery img{max-width:100%;height:auto;border-radius:8px;border:1px solid rgba(126,207,255,0.12)}
 .embeds-container{margin-top:24px;display:flex;flex-direction:column;gap:20px;align-items:center}
