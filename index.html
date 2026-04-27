@@ -115,7 +115,30 @@
     </div>
   </footer>
   <script>
+    const affirmations = [
+      'You are capable, creative, and doing great work today.',
+      'Your ideas are worth following all the way through.',
+      'Small progress still counts as real progress.',
+      'You can figure this out one step at a time.',
+      'Curiosity is enough to get you moving.',
+      'You do not need perfection to make something meaningful.',
+      'Your work gets stronger every time you return to it.',
+      'You are allowed to experiment and change your mind.',
+      'A steady pace is still a powerful pace.',
+      'You know more than you think you do.',
+      'Trying again is part of the process, not a setback.',
+      'Your perspective brings something no one else can.',
+      'You are building something thoughtful here.',
+      'Good work can begin with a messy first draft.',
+      'You can be both learning and doing well at the same time.'
+    ];
+    const affirmation = document.querySelector('.affirmation');
     const siteHeader = document.querySelector('.site-header');
+
+    if (affirmation) {
+      const randomIndex = Math.floor(Math.random() * affirmations.length);
+      affirmation.textContent = affirmations[randomIndex];
+    }
 
     function updateHeaderState() {
       if (!siteHeader) return;
