@@ -2,69 +2,64 @@ const { useEffect, useMemo, useState } = React;
 
 const quizCategories = {
   make01: {
-    label: 'Make 1 - Reverse Engineering',
+    label: 'Make 1: Reverse-engineer a DH/AI project',
     makeUrl: '../makes/week01.html',
-    description: 'Your answers point toward close looking, rebuilding, and understanding how something was made.'
+    description: 'Your answers point toward close looking, critcal analysis, and understanding how something was made.'
   },
   make02: {
-    label: 'Make 2 - Selfie',
+    label: 'Make 2: AI Selfie',
     makeUrl: '../makes/week02.html',
     description: 'Your answers point toward identity, image-making, and self-representation.'
   },
   make03: {
-    label: 'Make 3 - Comic',
+    label: 'Make 3: Let\'s Make a Comic',
     makeUrl: '../index.html#make3',
-    description: 'Your answers point toward humor, panels, visual storytelling, and creative sequencing.'
+    description: 'Your answers point toward critical humor, visual storytelling, and creative sequencing.'
   },
   make04: {
-    label: 'Make 4 - GIF',
+    label: 'Make 4: Gifs & Remix Culture',
     makeUrl: '../index.html#make4',
-    description: 'Your answers point toward movement, remix, timing, and visual emphasis.'
+    description: 'Your answers point toward remixing, visual storytelling, ownership, and visual emphasis.'
   },
   make05: {
-    label: 'Make 5 - GIF and Remix Culture',
+    label: 'Make 5: Compare Voyant vs GPT text analysis',
     makeUrl: '../makes/week05.html',
-    description: 'Your answers point toward remix, reuse, and making new meaning from existing media.'
+    description: 'Your answers point toward critical analysis, textual interpretation, and making new meaning from existing media.'
   },
   make06: {
-    label: 'Make 6 - Text and Distant Reading',
+    label: 'Make 6: Build a digital map of AI\'s infrastructures',
     makeUrl: '../makes/week06.html',
-    description: 'Your answers point toward patterns in text, interpretation, and evidence.'
+    description: 'Your answers point toward mapping, patterns in industries, and uncovering systemic inequalities.'
   },
   make07: {
-    label: 'Make 7 - Mapping AI Worlds',
+    label: 'Make 7: Networks of Knowledge & Power',
     makeUrl: '../makes/week07.html',
-    description: 'Your answers point toward places, systems, and how digital tools connect to the world.'
+    description: 'Your answers point toward hidden structures, networking, and how digital tools connect us to industries.'
   },
   make08: {
-    label: 'Make 8 - Networks of Knowledge and Power',
+    label: 'Make 8: Build a bot or generator using a no-code AI tool',
     makeUrl: '../makes/week08.html',
-    description: 'Your answers point toward relationships, influence, and hidden structures.'
+    description: 'Your answers point toward boundary exploration, generation, and algorithmic production.'
   },
   make09: {
-    label: 'Make 9 - Bots and Generators',
+    label: 'Make 9: Games and Play',
     makeUrl: '../makes/week09.html',
-    description: 'Your answers point toward rules, automation, playful systems, and generated output.'
+    description: 'Your answers point toward creativty under rules, playful systems, and an exploration of ethics.'
   },
   make10: {
-    label: 'Make 10 - Games and Play',
+    label: 'Make 10: AI & Labor',
     makeUrl: '../makes/week10.html',
-    description: 'Your answers point toward interaction, choices, play, and user experience.'
+    description: 'Your answers point toward hidden labor, uncovered truth, and visual storytelling.'
   },
   make11: {
-    label: 'Make 11 - AI and Labor',
+    label: 'Make 11: AI & Ecology',
     makeUrl: '../makes/week11.html',
-    description: 'Your answers point toward work, people, platforms, and the human side of technology.'
+    description: 'Your answers point toward environmental consequences, sustainability, and data visualization.'
   },
   make12: {
     label: 'Make 12 - AI and Ecology',
     makeUrl: '../makes/week12.html',
     description: 'Your answers point toward resources, sustainability, and environmental consequences.'
-  },
-  make13: {
-    label: 'Make 13 - Futures of AI and Humanity',
-    makeUrl: '../makes/week13.html',
-    description: 'Your answers point toward imagination, speculation, and the future of AI.'
   }
 };
 
@@ -74,15 +69,15 @@ const quizQuestions = [
     answers: [
       {
         text: 'Something visual, personal, or expressive',
-        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 1, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0, make13: 1 }
+        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 1, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0 }
       },
       {
         text: 'Something interactive, playful, or generated',
-        scores: { make01: 1, make02: 0, make03: 1, make04: 0, make05: 1, make06: 0, make07: 0, make08: 1, make09: 2, make10: 2, make11: 0, make12: 0, make13: 1 }
+        scores: { make01: 1, make02: 0, make03: 1, make04: 0, make05: 1, make06: 0, make07: 0, make08: 1, make09: 2, make10: 2, make11: 0, make12: 0 }
       },
       {
         text: 'Something researched, mapped, or analytical',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2, make13: 1 }
+        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2 }
       }
     ]
   },
@@ -91,15 +86,15 @@ const quizQuestions = [
     answers: [
       {
         text: 'Collecting images, arranging scenes, and shaping a mood',
-        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0, make13: 1 }
+        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0 }
       },
       {
         text: 'Testing a system until it does something surprising',
-        scores: { make01: 2, make02: 0, make03: 0, make04: 1, make05: 0, make06: 0, make07: 0, make08: 1, make09: 2, make10: 2, make11: 0, make12: 0, make13: 1 }
+        scores: { make01: 2, make02: 0, make03: 0, make04: 1, make05: 0, make06: 0, make07: 0, make08: 1, make09: 2, make10: 2, make11: 0, make12: 0 }
       },
       {
         text: 'Following a question through sources, data, or examples',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2, make13: 1 }
+        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2 }
       }
     ]
   },
@@ -108,15 +103,15 @@ const quizQuestions = [
     answers: [
       {
         text: 'Feel something or see an idea differently',
-        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 1, make11: 0, make12: 0, make13: 1 }
+        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 1, make11: 0, make12: 0 }
       },
       {
         text: 'Explore, choose, play, or experiment',
-        scores: { make01: 1, make02: 0, make03: 1, make04: 0, make05: 0, make06: 0, make07: 1, make08: 1, make09: 2, make10: 2, make11: 0, make12: 0, make13: 1 }
+        scores: { make01: 1, make02: 0, make03: 1, make04: 0, make05: 0, make06: 0, make07: 1, make08: 1, make09: 2, make10: 2, make11: 0, make12: 0 }
       },
       {
         text: 'Understand a larger issue more clearly',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2, make13: 2 }
+        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2 }
       }
     ]
   },
@@ -125,15 +120,15 @@ const quizQuestions = [
     answers: [
       {
         text: 'Identity, storytelling, and creative media',
-        scores: { make01: 0, make02: 2, make03: 2, make04: 1, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0, make13: 1 }
+        scores: { make01: 0, make02: 2, make03: 2, make04: 1, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0 }
       },
       {
         text: 'Automation, games, and computational creativity',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 0, make07: 0, make08: 1, make09: 2, make10: 2, make11: 1, make12: 0, make13: 1 }
+        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 0, make07: 0, make08: 1, make09: 2, make10: 2, make11: 1, make12: 0 }
       },
       {
         text: 'Labor, ecology, networks, and AI systems',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 1, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2, make13: 2 }
+        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 1, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2 }
       }
     ]
   },
@@ -142,15 +137,15 @@ const quizQuestions = [
     answers: [
       {
         text: 'A memorable image, comic, GIF, or remix',
-        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0, make13: 1 }
+        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0 }
       },
       {
         text: 'A working bot, generator, or game',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 0, make07: 0, make08: 0, make09: 2, make10: 2, make11: 0, make12: 0, make13: 1 }
+        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 0, make07: 0, make08: 0, make09: 2, make10: 2, make11: 0, make12: 0 }
       },
       {
         text: 'A clear map, network, analysis, or future scenario',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2, make13: 2 }
+        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2 }
       }
     ]
   }
