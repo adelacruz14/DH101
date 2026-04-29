@@ -100,7 +100,11 @@ body{
 .embed-frame-map{height:380px}
 .embed-frame-network{height:560px}
 .card{background:linear-gradient(180deg, rgba(12,35,68,0.9), rgba(10,30,60,0.9));padding:18px;border-radius:var(--radius);border:1px solid rgba(126,207,255,0.06)}
-.quiz-card{grid-area:quiz;padding:0;overflow:hidden}
+.quiz-cta-card{grid-area:quiz;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.quiz-cta-card h3{margin:0;font-size:22px;line-height:1.35;color:var(--text)}
+.quiz-cta-card .btn{margin-right:0;white-space:nowrap}
+.quiz-card{padding:0;overflow:hidden}
+.quiz-page-card{margin-top:24px}
 .quiz-shell{padding:22px}
 .quiz-eyebrow{margin:0 0 8px;color:var(--accent-2);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0}
 .quiz-shell h3{margin:0 0 10px;font-size:24px;color:var(--text)}
@@ -111,9 +115,6 @@ body{
 .quiz-answer{min-height:72px;padding:14px;border:1px solid rgba(126,207,255,0.18);border-radius:8px;background:rgba(126,207,255,0.07);color:var(--text);font:inherit;font-weight:650;line-height:1.35;text-align:left;cursor:pointer;transition:background 0.2s ease,border-color 0.2s ease,transform 0.2s ease}
 .quiz-answer:hover,.quiz-answer:focus-visible{background:rgba(126,207,255,0.14);border-color:rgba(126,207,255,0.38);transform:translateY(-1px)}
 .quiz-answer:focus-visible,.quiz-button-reset:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
-.quiz-score-list{display:grid;gap:8px;margin:18px 0}
-.quiz-score{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;background:rgba(255,255,255,0.06);border:1px solid rgba(126,207,255,0.12);border-radius:8px;color:var(--muted)}
-.quiz-score strong{color:var(--text)}
 .quiz-tie,.quiz-redirect{margin:12px 0 0;color:var(--muted);line-height:1.5}
 .quiz-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .quiz-actions .btn{border:0;font:inherit;cursor:pointer;margin-right:0}
@@ -195,6 +196,8 @@ body{
   .embeds-container .image-caption{width:100%}
   .embed-frame-map{height:300px}
   .embed-frame-network{height:420px}
+  .quiz-cta-card{align-items:flex-start;flex-direction:column}
+  .quiz-cta-card .btn{white-space:normal}
   .quiz-answers{grid-template-columns:1fr}
   .quiz-answer{min-height:0}
 }
