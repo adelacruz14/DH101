@@ -146,13 +146,33 @@
       affirmation.textContent = affirmations[randomIndex];
     }
 
+    let headerIsCompact = false;
+    let headerTicking = false;
+
     function updateHeaderState() {
       if (!siteHeader) return;
-      siteHeader.classList.toggle('is-compact', window.scrollY > 32);
+
+      const shouldCompact = !headerIsCompact && window.scrollY > 96;
+      const shouldExpand = headerIsCompact && window.scrollY < 24;
+
+      if (shouldCompact || shouldExpand) {
+        headerIsCompact = shouldCompact;
+        siteHeader.classList.toggle('is-compact', headerIsCompact);
+      }
+    }
+
+    function requestHeaderUpdate() {
+      if (headerTicking) return;
+
+      headerTicking = true;
+      window.requestAnimationFrame(() => {
+        updateHeaderState();
+        headerTicking = false;
+      });
     }
 
     updateHeaderState();
-    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
   </script>
 </body>
 </html>

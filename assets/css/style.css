@@ -100,7 +100,7 @@ body{
 .embed-frame-map{height:380px}
 .embed-frame-network{height:560px}
 .card{background:linear-gradient(180deg, rgba(12,35,68,0.9), rgba(10,30,60,0.9));padding:18px;border-radius:var(--radius);border:1px solid rgba(126,207,255,0.06)}
-.quiz-cta-card{grid-area:quiz;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.quiz-cta-card{grid-area:quiz;grid-column:1 / -1;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .quiz-cta-card h3{margin:0;font-size:22px;line-height:1.35;color:var(--text)}
 .quiz-cta-card .btn{margin-right:0;white-space:nowrap}
 .quiz-card{padding:0;overflow:hidden}
