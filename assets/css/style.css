@@ -103,6 +103,7 @@ body{
 .quiz-cta-card{grid-area:quiz;grid-column:1 / -1;width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 .quiz-cta-card h3{margin:0;font-size:24px;line-height:1.35;color:var(--text)}
 .quiz-cta-card p{margin:0;color:var(--muted);line-height:1.6}
+.quiz-cta-card h3,.quiz-cta-card p,.quiz-cta-card .btn{display:block}
 .quiz-cta-card .btn{margin-right:0;white-space:nowrap}
 .quiz-card{padding:0;overflow:hidden}
 .quiz-page-card{margin-top:24px}
