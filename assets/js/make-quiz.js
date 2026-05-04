@@ -65,90 +65,90 @@ const quizCategories = {
 
 const quizQuestions = [
   {
-    question: 'What kind of topic sounds most interesting to you?',
-    answers: [
-      {
-        text: 'Something visual and personal',
-        scores: { make01: 1, make02: 3, make03: 3, make04: 3, make05: 1, make06: 0, make07: 3, make08: 2, make09: 2, make10: 3, make11: 3, make12: 3, make13: 0 }
-      },
-      {
-        text: 'Something interactive and experimental',
-        scores: { make01: 0, make02: 1, make03: 2, make04: 1, make05: 1, make06: 2, make07: 0, make08: 3, make09: 3, make10: 0, make11: 1, make12: 2, make13: 0 }
-      },
-      {
-        text: 'Something researched and analytical',
-        scores: { make01: 3, make02: 0, make03: 0, make04: 0, make05: 3, make06: 3, make07: 2, make08: 0, make09: 0, make10: 3, make11: 2, make12: 0, make13: 0 }
-      }
-    ]
-  },
+  question: 'What kind of project excites you most?',
+  answers: [
+    {
+      text: 'Creating something visual, expressive, or personal',
+      scores: { make02: 3, make03: 3, make04: 3 }
+    },
+    {
+      text: 'Building something interactive, playful, or generative',
+      scores: { make08: 3, make09: 3 }
+    },
+    {
+      text: 'Investigating systems, patterns, or real-world issues',
+      scores: { make01: 3, make05: 3, make06: 3, make07: 3 }
+    }
+  ]
+},
+{
+  question: 'How do you like to work?',
+  answers: [
+    {
+      text: 'I focus on visuals and follow creative impulses, even if I don\'t know where they will lead',
+      scores: { make02: 3, make03: 3, make04: 3 }
+    },
+    {
+      text: 'I tweak and experiment until something unexpected happens',
+      scores: { make08: 3, make09: 3 }
+    },
+    {
+      text: 'I research, study data, and analyze structures before creating',
+      scores: { make01: 3, make05: 3, make06: 3, make07: 3 }
+    }
+  ]
+},
+{
+  question: 'When creating, what do you want your project to show others?',
+  answers: [
+    {
+      text: 'Make them feel something or see a new perspective',
+      scores: { make02: 2, make03: 3, make04: 3, make12: 2 }
+    },
+    {
+      text: 'Let them interact, play, or explore',
+      scores: { make08: 3, make09: 3 }
+    },
+    {
+      text: 'Help them understand a bigger issue',
+      scores: { make05: 3, make06: 3, make07: 3, make10: 3, make11: 3 }
+    }
+  ]
+},
+{
+  question: 'How much structure do you like when creating?',
+  answers: [
+    {
+      text: 'Very open-ended, so I can figure it out as I go',
+      scores: { make03: 3, make04: 3, make08: 3 }
+    },
+    {
+      text: 'A mix, with some guidance but room to explore',
+      scores: { make02: 3, make09: 2, make12: 3 }
+    },
+    {
+      text: 'Clear structure, with defined goals and frameworks',
+      scores: { make01: 3, make05: 3, make06: 3, make07: 3 }
+    }
+  ]
+},
   {
-    question: 'Which process do you enjoy most?',
-    answers: [
-      {
-        text: 'Collecting images, arranging scenes, and shaping a mood',
-        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0, make13: 1 }
-      },
-      {
-        text: 'Testing a system until it does something surprising',
-        scores: { make01: 2, make02: 0, make03: 0, make04: 1, make05: 0, make06: 0, make07: 0, make08: 1, make09: 2, make10: 2, make11: 0, make12: 0, make13: 1 }
-      },
-      {
-        text: 'Following a question through sources, data, or examples',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2, make13: 1 }
-      }
-    ]
-  },
-  {
-    question: 'What should your finished make help someone do?',
-    answers: [
-      {
-        text: 'Feel something or see an idea differently',
-        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 1, make11: 0, make12: 0, make13: 1 }
-      },
-      {
-        text: 'Explore, choose, play, or experiment',
-        scores: { make01: 1, make02: 0, make03: 1, make04: 0, make05: 0, make06: 0, make07: 1, make08: 1, make09: 2, make10: 2, make11: 0, make12: 0, make13: 1 }
-      },
-      {
-        text: 'Understand a larger issue more clearly',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2, make13: 2 }
-      }
-    ]
-  },
-  {
-    question: 'Which topic pulls your attention first?',
-    answers: [
-      {
-        text: 'Identity, storytelling, and creative media',
-        scores: { make01: 0, make02: 2, make03: 2, make04: 1, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0, make13: 1 }
-      },
-      {
-        text: 'Automation, games, and computational creativity',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 0, make07: 0, make08: 1, make09: 2, make10: 2, make11: 1, make12: 0, make13: 1 }
-      },
-      {
-        text: 'Labor, ecology, networks, and AI systems',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 1, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2, make13: 2 }
-      }
-    ]
-  },
-  {
-    question: 'Pick the result you would be proudest to share.',
-    answers: [
-      {
-        text: 'A memorable image, comic, GIF, or remix',
-        scores: { make01: 0, make02: 2, make03: 2, make04: 2, make05: 2, make06: 0, make07: 0, make08: 0, make09: 0, make10: 0, make11: 0, make12: 0, make13: 1 }
-      },
-      {
-        text: 'A working bot, generator, or game',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 0, make07: 0, make08: 0, make09: 2, make10: 2, make11: 0, make12: 0, make13: 1 }
-      },
-      {
-        text: 'A clear map, network, analysis, or future scenario',
-        scores: { make01: 1, make02: 0, make03: 0, make04: 0, make05: 0, make06: 2, make07: 2, make08: 2, make09: 0, make10: 0, make11: 2, make12: 2, make13: 2 }
-      }
-    ]
-  }
+  question: 'What scale do you prefer thinking at?',
+  answers: [
+    {
+      text: 'Indivual, with stories, identity, and experience',
+      scores: { make02: 3, make03: 3 }
+    },
+    {
+      text: 'In-between, about systems, tools, and interactions',
+      scores: { make04: 2, make08: 3, make09: 3, make01: 2 }
+    },
+    {
+      text: 'Big picture, about society, environments, and the future',
+      scores: { make06: 2, make07: 2, make10: 3, make11: 3, make12: 3 }
+    }
+  ]
+}
 ];
 
 function getInitialScores() {
