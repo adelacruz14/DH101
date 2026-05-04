@@ -77,7 +77,7 @@ const quizQuestions = [
     },
     {
       text: 'Investigating systems, patterns, or real-world issues',
-      scores: { make01: 3, make05: 3, make06: 3, make07: 3 }
+      scores: { make01: 3, make05: 3, make06: 3, make07: 3, make11: 1 }
     }
   ]
 },
@@ -111,7 +111,7 @@ const quizQuestions = [
     },
     {
       text: 'Help them understand a bigger issue',
-      scores: { make05: 3, make06: 3, make07: 3, make10: 3, make11: 3 }
+      scores: { make01: 2, make05: 3, make06: 3, make07: 3, make10: 3, make11: 3 }
     }
   ]
 },
@@ -128,7 +128,7 @@ const quizQuestions = [
     },
     {
       text: 'Clear structure, with defined goals and frameworks',
-      scores: { make01: 3, make05: 3, make06: 3, make07: 3 }
+      scores: { make01: 3, make05: 3, make06: 2, make07: 3 }
     }
   ]
 },
@@ -145,7 +145,7 @@ const quizQuestions = [
     },
     {
       text: 'Big picture, about society, environments, and the future',
-      scores: { make06: 2, make07: 2, make10: 3, make11: 3, make12: 3 }
+      scores: { make06: 2, make07: 3, make10: 3, make11: 3, make12: 3 }
     }
   ]
 }
@@ -248,8 +248,7 @@ function MakePersonalityQuiz() {
     'div',
     { className: 'quiz-shell' },
     React.createElement('p', { className: 'quiz-eyebrow' }, `Question ${currentQuestion + 1} of ${quizQuestions.length}`),
-    React.createElement('h3', { id: 'quiz-title' }, 'Which make matches your style?'),
-    React.createElement('p', { className: 'quiz-question' }, question.question),
+    React.createElement('h3', { id: 'quiz-title' }, question.question),
     React.createElement(
       'div',
       { className: 'quiz-progress', 'aria-hidden': 'true' },
@@ -274,5 +273,5 @@ const quizRoot = document.getElementById('make-quiz-root');
 if (window.React && window.ReactDOM && quizRoot) {
   ReactDOM.createRoot(quizRoot).render(React.createElement(MakePersonalityQuiz));
 } else if (quizRoot) {
-  quizRoot.innerHTML = '<div class="quiz-shell"><h3 id="quiz-title">Which make matches your style?</h3><p class="quiz-description">The quiz needs React to load. Please refresh when you are online.</p></div>';
+  quizRoot.innerHTML = '<div class="quiz-shell"><h3 id="quiz-title">Make Interest Quiz</h3><p class="quiz-description">The quiz needs React to load. Please refresh when you are online.</p></div>';
 }
