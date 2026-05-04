@@ -122,6 +122,8 @@ body{
 .quiz-actions .btn{border:0;font:inherit;cursor:pointer;margin-right:0}
 .makes-section{grid-area:makes;background:linear-gradient(180deg, rgba(12,35,68,0.9), rgba(10,30,60,0.9));padding:18px;border-radius:var(--radius);border:1px solid rgba(126,207,255,0.06)}
 .resources-card{grid-area:resources}
+.resources-card a{color:#fff}
+.resources-card a:visited{color:#ff8ac7}
 .reflection-card{grid-area:reflection;padding:12px}
 .lead{color:var(--muted);margin-top:8px}
 .reflection h4{margin:0 0 8px}
