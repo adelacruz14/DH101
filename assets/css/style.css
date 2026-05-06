@@ -16,7 +16,15 @@
 body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background:#000;
+  min-height:100vh;
+  background:
+    linear-gradient(135deg, rgba(126,207,255,0.12) 0 1px, transparent 1px 42px),
+    linear-gradient(45deg, rgba(111,82,255,0.1) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(0deg, rgba(126,207,255,0.055) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, rgba(126,207,255,0.045) 0 1px, transparent 1px 48px),
+    linear-gradient(145deg, #031225 0%, #082b58 42%, #0b3a6b 100%);
+  background-attachment:fixed;
+  background-size:84px 84px, 112px 112px, 48px 48px, 48px 48px, auto;
   color:var(--text);
   -webkit-font-smoothing:antialiased;
 }
