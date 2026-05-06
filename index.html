@@ -200,16 +200,6 @@
       }
 
       document.body.prepend(starField);
-      updateStarDrift();
-    }
-
-    function updateStarDrift() {
-      if (!starField) return;
-
-      const scrollLoop = window.scrollY % 240;
-
-      starField.style.setProperty('--star-drift-x', `${scrollLoop * -0.08}px`);
-      starField.style.setProperty('--star-drift-y', `${scrollLoop * 0.16}px`);
     }
 
     scatterStars();
@@ -235,13 +225,11 @@
       headerTicking = true;
       window.requestAnimationFrame(() => {
         updateHeaderState();
-        updateStarDrift();
         headerTicking = false;
       });
     }
 
     updateHeaderState();
-    updateStarDrift();
     window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
     window.addEventListener('resize', scatterStars);
   </script>

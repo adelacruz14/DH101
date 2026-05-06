@@ -34,8 +34,6 @@ body{
   z-index:0;
   overflow:hidden;
   pointer-events:none;
-  transform:translate3d(var(--star-drift-x, 0), var(--star-drift-y, 0), 0);
-  will-change:transform;
 }
 .site-star{
   position:absolute;
