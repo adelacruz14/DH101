@@ -153,7 +153,7 @@
     function updateHeaderState() {
       if (!siteHeader) return;
 
-      const shouldCompact = !headerIsCompact && window.scrollY > 180;
+      const shouldCompact = !headerIsCompact && window.scrollY > 120;
       const shouldExpand = headerIsCompact && window.scrollY < 32;
 
       if (shouldCompact || shouldExpand) {
