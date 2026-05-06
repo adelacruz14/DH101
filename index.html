@@ -141,11 +141,46 @@
     ];
     const affirmation = document.querySelector('.affirmation');
     const siteHeader = document.querySelector('.site-header');
+    const starCount = 12;
 
     if (affirmation) {
       const randomIndex = Math.floor(Math.random() * affirmations.length);
       affirmation.textContent = affirmations[randomIndex];
     }
+
+    function scatterStars() {
+      const starField = document.createElement('div');
+      starField.className = 'site-star-field';
+      starField.setAttribute('aria-hidden', 'true');
+
+      for (let i = 0; i < starCount; i += 1) {
+        const star = document.createElement('button');
+        const size = 16 + Math.random() * 18;
+
+        star.className = 'site-star';
+        star.type = 'button';
+        star.tabIndex = -1;
+        star.style.setProperty('--star-x', `${4 + Math.random() * 92}%`);
+        star.style.setProperty('--star-y', `${8 + Math.random() * 86}%`);
+        star.style.setProperty('--star-size', `${size}px`);
+        star.style.setProperty('--star-opacity', `${0.38 + Math.random() * 0.28}`);
+        star.style.setProperty('--star-rotation', `${Math.random() * 360}deg`);
+        star.addEventListener('click', () => {
+          star.classList.remove('is-spinning');
+          void star.offsetWidth;
+          star.classList.add('is-spinning');
+        });
+        star.addEventListener('animationend', () => {
+          star.classList.remove('is-spinning');
+        });
+
+        starField.appendChild(star);
+      }
+
+      document.body.prepend(starField);
+    }
+
+    scatterStars();
 
     let headerIsCompact = false;
     let headerTicking = false;
