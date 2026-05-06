@@ -18,8 +18,10 @@ body{
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   min-height:100vh;
   background:
-    repeating-linear-gradient(125deg, rgba(126,207,255,0.2) 0 3px, transparent 3px 46px),
-    repeating-linear-gradient(125deg, transparent 0 22px, rgba(10,190,176,0.18) 22px 25px, transparent 25px 72px),
+    linear-gradient(125deg, transparent 0 12%, rgba(126,207,255,0.16) 12% 12.35%, transparent 12.35% 24%, rgba(10,190,176,0.14) 24% 24.35%, transparent 24.35% 100%),
+    repeating-linear-gradient(125deg, rgba(126,207,255,0.22) 0 3px, transparent 3px 46px),
+    repeating-linear-gradient(125deg, transparent 0 22px, rgba(10,190,176,0.2) 22px 25px, transparent 25px 72px),
+    repeating-linear-gradient(35deg, transparent 0 78px, rgba(126,207,255,0.08) 78px 80px, transparent 80px 156px),
     linear-gradient(145deg, #031225 0%, #082b58 42%, #0b3a6b 100%);
   background-attachment:fixed;
   background-size:auto;
@@ -32,6 +34,8 @@ body{
   z-index:0;
   overflow:hidden;
   pointer-events:none;
+  transform:translate3d(var(--star-drift-x, 0), var(--star-drift-y, 0), 0);
+  will-change:transform;
 }
 .site-star{
   position:absolute;

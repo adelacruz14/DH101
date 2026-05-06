@@ -142,14 +142,36 @@
     const affirmation = document.querySelector('.affirmation');
     const siteHeader = document.querySelector('.site-header');
     const starCount = 12;
+    let starField;
 
     if (affirmation) {
       const randomIndex = Math.floor(Math.random() * affirmations.length);
       affirmation.textContent = affirmations[randomIndex];
     }
 
+    function getStarXPosition() {
+      const viewportWidth = window.innerWidth;
+      const contentWidth = Math.min(viewportWidth, 1000);
+      const gutterWidth = Math.max((viewportWidth - contentWidth) / 2, 0);
+      const side = Math.random() < 0.5 ? 'left' : 'right';
+
+      if (gutterWidth > 56) {
+        const padding = 24;
+        const x = padding + Math.random() * Math.max(gutterWidth - padding * 2, 24);
+        return side === 'left' ? x : viewportWidth - x;
+      }
+
+      const edgeWidth = Math.min(34, viewportWidth * 0.08);
+      const x = 8 + Math.random() * edgeWidth;
+      return side === 'left' ? x : viewportWidth - x;
+    }
+
     function scatterStars() {
-      const starField = document.createElement('div');
+      if (starField) {
+        starField.remove();
+      }
+
+      starField = document.createElement('div');
       starField.className = 'site-star-field';
       starField.setAttribute('aria-hidden', 'true');
 
@@ -160,7 +182,7 @@
         star.className = 'site-star';
         star.type = 'button';
         star.tabIndex = -1;
-        star.style.setProperty('--star-x', `${4 + Math.random() * 92}%`);
+        star.style.setProperty('--star-x', `${getStarXPosition()}px`);
         star.style.setProperty('--star-y', `${8 + Math.random() * 86}%`);
         star.style.setProperty('--star-size', `${size}px`);
         star.style.setProperty('--star-opacity', `${0.38 + Math.random() * 0.28}`);
@@ -178,6 +200,16 @@
       }
 
       document.body.prepend(starField);
+      updateStarDrift();
+    }
+
+    function updateStarDrift() {
+      if (!starField) return;
+
+      const scrollLoop = window.scrollY % 240;
+
+      starField.style.setProperty('--star-drift-x', `${scrollLoop * -0.08}px`);
+      starField.style.setProperty('--star-drift-y', `${scrollLoop * 0.16}px`);
     }
 
     scatterStars();
@@ -203,12 +235,15 @@
       headerTicking = true;
       window.requestAnimationFrame(() => {
         updateHeaderState();
+        updateStarDrift();
         headerTicking = false;
       });
     }
 
     updateHeaderState();
+    updateStarDrift();
     window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
+    window.addEventListener('resize', scatterStars);
   </script>
 </body>
 </html>
