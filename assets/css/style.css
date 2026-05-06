@@ -18,12 +18,11 @@ body{
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   min-height:100vh;
   background:
-    repeating-linear-gradient(125deg, rgba(126,207,255,0.14) 0 1px, transparent 1px 42px),
-    repeating-linear-gradient(35deg, rgba(10,127,120,0.12) 0 1px, transparent 1px 64px),
-    linear-gradient(155deg, transparent 0 18%, rgba(126,207,255,0.08) 18% 18.4%, transparent 18.4% 42%, rgba(10,127,120,0.08) 42% 42.4%, transparent 42.4% 100%),
+    repeating-linear-gradient(125deg, rgba(126,207,255,0.2) 0 3px, transparent 3px 46px),
+    repeating-linear-gradient(125deg, transparent 0 22px, rgba(10,190,176,0.18) 22px 25px, transparent 25px 72px),
     linear-gradient(145deg, #031225 0%, #082b58 42%, #0b3a6b 100%);
   background-attachment:fixed;
-  background-size:96px 96px, 132px 132px, 280px 180px, auto;
+  background-size:auto;
   color:var(--text);
   -webkit-font-smoothing:antialiased;
 }
