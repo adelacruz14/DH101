@@ -227,10 +227,11 @@ function getResult(scores) {
 function MakePersonalityQuiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState(getInitialScores);
+  const [resultScores, setResultScores] = useState(null);
   const [isComplete, setIsComplete] = useState(false);
   const [redirectSeconds, setRedirectSeconds] = useState(5);
 
-  const result = useMemo(() => getResult(scores), [scores]);
+  const result = useMemo(() => getResult(resultScores || scores), [resultScores, scores]);
   const question = quizQuestions[currentQuestion];
 
   useEffect(() => {
@@ -258,6 +259,7 @@ function MakePersonalityQuiz() {
     setScores(updatedScores);
 
     if (currentQuestion === quizQuestions.length - 1) {
+      setResultScores(updatedScores);
       setIsComplete(true);
       setRedirectSeconds(5);
     } else {
@@ -268,6 +270,7 @@ function MakePersonalityQuiz() {
   function restartQuiz() {
     setCurrentQuestion(0);
     setScores(getInitialScores());
+    setResultScores(null);
     setIsComplete(false);
     setRedirectSeconds(5);
   }
