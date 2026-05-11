@@ -132,6 +132,42 @@ const quizQuestions = [
     }
   ]
 },
+{
+  question: 'When thinking about AI systems, what interests you most?',
+  answers: [
+    {
+      text: 'How AI changes people, identity, storytelling, and creative expression',
+      scores: {
+        make02: 3,
+        make03: 3,
+        make04: 3,
+        make10: 2,
+        make12: 2
+      }
+    },
+    {
+      text: 'How AI systems function through tools, rules, infrastructure, and networks',
+      scores: {
+        make01: 3,
+        make05: 3,
+        make06: 3,
+        make07: 3,
+        make08: 2,
+        make09: 2
+      }
+    },
+    {
+      text: 'How AI affects society, labor, environments, and the future',
+      scores: {
+        make10: 3,
+        make11: 3,
+        make12: 3,
+        make06: 1,
+        make07: 1
+      }
+    }
+  ]
+},
   {
   question: 'What scale do you prefer thinking at?',
   answers: [

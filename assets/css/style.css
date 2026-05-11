@@ -17,6 +17,7 @@ body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   min-height:100vh;
+  position:relative;
   background:
     linear-gradient(125deg, transparent 0 12%, rgba(126,207,255,0.16) 12% 12.35%, transparent 12.35% 24%, rgba(10,190,176,0.14) 24% 24.35%, transparent 24.35% 100%),
     repeating-linear-gradient(125deg, rgba(126,207,255,0.22) 0 3px, transparent 3px 46px),
@@ -28,10 +29,34 @@ body{
   color:var(--text);
   -webkit-font-smoothing:antialiased;
 }
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:min(48vw, 520px);
+  aspect-ratio:1;
+  z-index:0;
+  pointer-events:none;
+  opacity:0.58;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  mix-blend-mode:screen;
+}
+body::before{
+  top:-88px;
+  right:-82px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 520'%3E%3Cdefs%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2.4' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke-linejoin='round' stroke-width='2.4' filter='url(%23glow)'%3E%3Cpolygon points='318,26 361,51 361,101 318,126 275,101 275,51' stroke='%237ecfff' opacity='.24'/%3E%3Cpolygon points='417,82 455,104 455,148 417,170 379,148 379,104' stroke='%236f52ff' opacity='.22'/%3E%3Cpolygon points='234,145 275,169 275,217 234,241 193,217 193,169' stroke='%230abeb0' opacity='.20'/%3E%3Cpolygon points='363,208 413,237 413,295 363,324 313,295 313,237' stroke='%237ecfff' opacity='.18'/%3E%3Cpolygon points='462,272 497,292 497,332 462,352 427,332 427,292' stroke='%230abeb0' opacity='.17'/%3E%3Cpolygon points='270,334 311,358 311,406 270,430 229,406 229,358' stroke='%236f52ff' opacity='.18'/%3E%3C/g%3E%3Cg fill='none' stroke='%237ecfff' stroke-width='1.4' opacity='.16'%3E%3Cpath d='M361 76h38M275 193h-52M413 266h35M311 382h41'/%3E%3Cpath d='M399 76l18 28M352 382l11-58M448 266l14 46'/%3E%3C/g%3E%3Cg fill='%237ecfff' opacity='.28'%3E%3Ccircle cx='399' cy='76' r='3'/%3E%3Ccircle cx='223' cy='193' r='3'/%3E%3Ccircle cx='448' cy='266' r='3'/%3E%3Ccircle cx='352' cy='382' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+body::after{
+  left:-96px;
+  bottom:-108px;
+  transform:rotate(180deg);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 520'%3E%3Cdefs%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2.4' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke-linejoin='round' stroke-width='2.4' filter='url(%23glow)'%3E%3Cpolygon points='318,26 361,51 361,101 318,126 275,101 275,51' stroke='%237ecfff' opacity='.24'/%3E%3Cpolygon points='417,82 455,104 455,148 417,170 379,148 379,104' stroke='%236f52ff' opacity='.22'/%3E%3Cpolygon points='234,145 275,169 275,217 234,241 193,217 193,169' stroke='%230abeb0' opacity='.20'/%3E%3Cpolygon points='363,208 413,237 413,295 363,324 313,295 313,237' stroke='%237ecfff' opacity='.18'/%3E%3Cpolygon points='462,272 497,292 497,332 462,352 427,332 427,292' stroke='%230abeb0' opacity='.17'/%3E%3Cpolygon points='270,334 311,358 311,406 270,430 229,406 229,358' stroke='%236f52ff' opacity='.18'/%3E%3C/g%3E%3Cg fill='none' stroke='%237ecfff' stroke-width='1.4' opacity='.16'%3E%3Cpath d='M361 76h38M275 193h-52M413 266h35M311 382h41'/%3E%3Cpath d='M399 76l18 28M352 382l11-58M448 266l14 46'/%3E%3C/g%3E%3Cg fill='%237ecfff' opacity='.28'%3E%3Ccircle cx='399' cy='76' r='3'/%3E%3Ccircle cx='223' cy='193' r='3'/%3E%3Ccircle cx='448' cy='266' r='3'/%3E%3Ccircle cx='352' cy='382' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
 .site-star-field{
   position:fixed;
   inset:0;
-  z-index:0;
+  z-index:2;
   overflow:hidden;
   pointer-events:none;
 }
@@ -66,6 +91,11 @@ body{
   to{transform:translate(-50%,-50%) rotate(calc(var(--star-rotation) + 360deg))}
 }
 .container{max-width:1000px;margin:0 auto;padding:28px}
+main.container,
+.site-footer{
+  position:relative;
+  z-index:1;
+}
 .site-header{
   position:sticky;
   top:0;
