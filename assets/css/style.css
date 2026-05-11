@@ -1,3 +1,14 @@
+/* Center GIF in make 4 */
+.gif-artifact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.gif-artifact img {
+  display: block;
+  margin: 0 auto;
+}
 .root-fallback{}
 :root{
   --bg1:#082b58; /* deep pastel blue */
