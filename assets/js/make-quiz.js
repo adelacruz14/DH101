@@ -159,11 +159,11 @@ const quizQuestions = [
     {
       text: 'How AI affects society, labor, environments, and the future',
       scores: {
-        make10: 3,
-        make11: 3,
-        make12: 3,
-        make06: 1,
-        make07: 1
+          make10: 2,
+          make11: 2,
+          make12: 3,
+          make06: 1,
+          make07: 1
       }
     }
   ]
@@ -182,6 +182,23 @@ const quizQuestions = [
     {
       text: 'Big picture, about society, environments, and the future',
       scores: { make06: 2, make07: 3, make10: 3, make11: 3, make12: 3 }
+    }
+  ]
+},
+{
+  question: 'What kind of AI issue do you most want to uncover?',
+  answers: [
+    {
+      text: 'How AI tools analyze language, texts, and patterns',
+      scores: { make05: 3, make01: 1 }
+    },
+    {
+      text: 'Where AI infrastructure exists physically across places',
+      scores: { make06: 3, make07: 1 }
+    },
+    {
+      text: 'The hidden human or environmental costs behind AI systems',
+      scores: { make10: 2, make11: 2, make07: 1 }
     }
   ]
 }
