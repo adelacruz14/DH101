@@ -53,22 +53,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.querySelectorAll('.make-showcase').forEach((showcase) => {
-    const slides = Array.from(showcase.querySelectorAll('.make-showcase-slide'));
     const track = showcase.querySelector('.make-showcase-track');
+    const originalSlides = Array.from(showcase.querySelectorAll('.make-showcase-slide'));
     const dotsContainer = showcase.querySelector('.make-showcase-dots');
     const previousButton = showcase.querySelector('[data-carousel-action="previous"]');
     const nextButton = showcase.querySelector('[data-carousel-action="next"]');
-    let activeSlide = slides.findIndex((slide) => slide.classList.contains('is-active'));
+    let activeSlide = originalSlides.findIndex((slide) => slide.classList.contains('is-active'));
     let rotationTimer;
+    let isAnimating = false;
 
-    if (slides.length < 2 || !track) return;
+    if (originalSlides.length < 2 || !track) return;
     if (activeSlide < 0) {
       activeSlide = 0;
-      slides[activeSlide].classList.add('is-active');
+      originalSlides[activeSlide].classList.add('is-active');
     }
 
+    const firstClone = originalSlides[0].cloneNode(true);
+    const lastClone = originalSlides[originalSlides.length - 1].cloneNode(true);
+    firstClone.classList.add('is-carousel-clone');
+    lastClone.classList.add('is-carousel-clone');
+    firstClone.setAttribute('aria-hidden', 'true');
+    lastClone.setAttribute('aria-hidden', 'true');
+    track.insertBefore(lastClone, originalSlides[0]);
+    track.appendChild(firstClone);
+
+    const slides = Array.from(track.querySelectorAll('.make-showcase-slide'));
+    let trackIndex = activeSlide + 1;
+
     const dots = dotsContainer
-      ? slides.map((slide, index) => {
+      ? originalSlides.map((slide, index) => {
           const dot = document.createElement('button');
           dot.className = 'make-showcase-dot';
           dot.type = 'button';
@@ -78,9 +91,23 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       : [];
 
-    function updateSlideState() {
+    function centerTrack({ animate = true } = {}) {
+      const activeElement = slides[trackIndex];
+      const showcaseCenter = showcase.clientWidth / 2;
+      const slideCenter = activeElement.offsetLeft + activeElement.offsetWidth / 2;
+
+      track.style.transition = animate ? '' : 'none';
+      track.style.transform = `translateX(${showcaseCenter - slideCenter}px)`;
+
+      if (!animate) {
+        void track.offsetWidth;
+        track.style.transition = '';
+      }
+    }
+
+    function updateSlideState({ animate = true } = {}) {
       slides.forEach((slide, index) => {
-        const isActive = index === activeSlide;
+        const isActive = index === trackIndex;
         slide.classList.toggle('is-active', isActive);
       });
 
@@ -90,14 +117,23 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.setAttribute('aria-current', isActive ? 'true' : 'false');
       });
 
-      const activeElement = slides[activeSlide];
-      const showcaseCenter = showcase.clientWidth / 2;
-      const slideCenter = activeElement.offsetLeft + activeElement.offsetWidth / 2;
-      track.style.transform = `translateX(${showcaseCenter - slideCenter}px)`;
+      centerTrack({ animate });
     }
 
-    function showSlide(nextSlide) {
-      activeSlide = nextSlide;
+    function showSlide(nextIndex) {
+      if (isAnimating) return;
+
+      isAnimating = true;
+      trackIndex = nextIndex;
+
+      if (trackIndex === 0) {
+        activeSlide = originalSlides.length - 1;
+      } else if (trackIndex === slides.length - 1) {
+        activeSlide = 0;
+      } else {
+        activeSlide = trackIndex - 1;
+      }
+
       updateSlideState();
     }
 
@@ -105,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (prefersReducedMotion) return;
       window.clearInterval(rotationTimer);
       rotationTimer = window.setInterval(() => {
-        showSlide((activeSlide + 1) % slides.length);
+        showSlide(trackIndex + 1);
       }, 7000);
     }
 
@@ -115,28 +151,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     previousButton?.addEventListener('click', () => {
       pauseRotation();
-      showSlide((activeSlide - 1 + slides.length) % slides.length);
+      showSlide(trackIndex - 1);
       startRotation();
     });
     nextButton?.addEventListener('click', () => {
       pauseRotation();
-      showSlide((activeSlide + 1) % slides.length);
+      showSlide(trackIndex + 1);
       startRotation();
     });
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
         pauseRotation();
-        showSlide(index);
+        showSlide(index + 1);
         startRotation();
       });
+    });
+
+    track.addEventListener('transitionend', () => {
+      if (trackIndex === 0) {
+        trackIndex = originalSlides.length;
+        updateSlideState({ animate: false });
+      } else if (trackIndex === slides.length - 1) {
+        trackIndex = 1;
+        updateSlideState({ animate: false });
+      }
+
+      isAnimating = false;
     });
 
     showcase.addEventListener('mouseenter', pauseRotation);
     showcase.addEventListener('mouseleave', startRotation);
     showcase.addEventListener('focusin', pauseRotation);
     showcase.addEventListener('focusout', startRotation);
-    window.addEventListener('resize', updateSlideState);
-    updateSlideState();
+    window.addEventListener('resize', () => updateSlideState({ animate: false }));
+    updateSlideState({ animate: false });
     startRotation();
   });
 
