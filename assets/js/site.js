@@ -52,6 +52,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 160);
   }
 
+  document.querySelectorAll('.make-showcase').forEach((showcase) => {
+    const slides = Array.from(showcase.querySelectorAll('.make-showcase-slide'));
+    let activeSlide = slides.findIndex((slide) => slide.classList.contains('is-active'));
+    let rotationTimer;
+
+    if (slides.length < 2 || prefersReducedMotion) return;
+    if (activeSlide < 0) {
+      activeSlide = 0;
+      slides[activeSlide].classList.add('is-active');
+    }
+
+    function showSlide(nextSlide) {
+      slides[activeSlide].classList.remove('is-active');
+      activeSlide = nextSlide;
+      slides[activeSlide].classList.add('is-active');
+    }
+
+    function startRotation() {
+      window.clearInterval(rotationTimer);
+      rotationTimer = window.setInterval(() => {
+        showSlide((activeSlide + 1) % slides.length);
+      }, 7000);
+    }
+
+    function pauseRotation() {
+      window.clearInterval(rotationTimer);
+    }
+
+    showcase.addEventListener('mouseenter', pauseRotation);
+    showcase.addEventListener('mouseleave', startRotation);
+    showcase.addEventListener('focusin', pauseRotation);
+    showcase.addEventListener('focusout', startRotation);
+    startRotation();
+  });
+
   document.querySelectorAll('.reflections-dropdown').forEach((dropdown) => {
     if (dropdown.parentElement?.classList.contains('dropdown-wrap')) return;
 
