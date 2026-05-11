@@ -45,9 +45,9 @@ Unordered, ordered, and task lists.
 Use relative paths inside the repo.
 
 ```markdown
-[Week 01 reflection](../reflections/week01.html)
+[Bot Creativity reflection](../reflections/week09.html)
 [Outside resource](https://example.com)
-![Alt text for image](../assets/images/example.png)
+![Alt text for image](../assets/images/make3.jpg)
 ```
 
 ### Embedding local images
@@ -56,7 +56,7 @@ Use relative paths inside the repo.
 - Write helpful alt text that describes the image.
 
 ```markdown
-![Alt text: campus map sketch](../assets/images/campus-sketch.png)
+![Alt text: comic artifact](../assets/images/make3.jpg)
 ```
 
 ## Code and Quotes
@@ -103,12 +103,12 @@ Here is a footnote.[^1]
 - Use descriptive alt text for images (what someone would miss if the image did not load).
 - When copying from Word/Google Docs, paste as plain text to avoid odd characters.
 
-## Weekly Reflection Template
+## Reflection Template
 
-Use this structure for weekly reflections (adjust prompts as needed).
+Use this structure for reflections (adjust prompts as needed).
 
 ```markdown
-# Week 13 Reflection
+# Reflection Title
 
 ## Prompt 1: Key insight
 Write 3-5 sentences answering the question. Focus on what surprised you or changed your view.
@@ -122,11 +122,11 @@ Write 3-5 sentences answering the question. Focus on what surprised you or chang
 2. What do you still need to learn or clarify?
 
 ## Media (optional)
-![Alt text: short description](../assets/images/example.png)
+![Alt text: short description](../assets/images/make3.jpg)
 ```
 
 Tips for reflections
-- Start with a clear H1 title: `# Week X Reflection`.
+- Start with a clear H1 title: `# Reflection Title`.
 - Keep sections in order; avoid skipping heading levels.
 - Prefer short paragraphs and bullet points over long blocks of text.
 - If you include images, explain why they matter in the surrounding text.
