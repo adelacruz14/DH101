@@ -13,7 +13,7 @@ const quizCategories = {
   },
   make03: {
     label: 'Make 3: Let\'s Make a Comic',
-    makeUrl: '../index.html#make3',
+    makeUrl: '../makes/week03.html',
     description: 'Your answers point toward critical humor, visual storytelling, and creative sequencing.'
   },
   make04: {

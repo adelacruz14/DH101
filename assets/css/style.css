@@ -117,7 +117,7 @@ main.container,
   padding:46px 52px 38px;
   border:2px solid rgba(3,18,37,0.9);
   border-radius:10px;
-  background:#f8fbff;
+  background:linear-gradient(145deg, #d8e7fb 0%, #c2d8f2 100%);
   color:#071832;
   text-align:center;
   box-shadow:0 34px 100px rgba(0,0,0,0.62);
@@ -155,7 +155,7 @@ main.container,
   position:relative;
   margin:14px auto 0;
   max-width:470px;
-  color:#42526d;
+  color:#24405f;
   font-size:16px;
   line-height:1.5;
 }
