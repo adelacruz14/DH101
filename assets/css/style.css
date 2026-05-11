@@ -555,7 +555,9 @@ main.container,
   }
   .reflections-dropdown{
     width:100%;
+    padding-left:28px;
     padding-right:28px;
+    text-align-last:center;
   }
   .dropdown-wrap--reflections .reflections-dropdown,
   .dropdown-wrap--makes .reflections-dropdown{
