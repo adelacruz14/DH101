@@ -172,7 +172,7 @@ const quizQuestions = [
   question: 'What scale do you prefer thinking at?',
   answers: [
     {
-      text: 'Indivual, with stories, identity, and experience',
+      text: 'Individual, with stories, identity, and experience',
       scores: { make02: 3, make03: 3 }
     },
     {
