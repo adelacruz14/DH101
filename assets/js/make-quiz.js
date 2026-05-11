@@ -27,7 +27,7 @@ const quizCategories = {
     description: 'Your answers point toward critical analysis, textual interpretation, and making new meaning from existing media.'
   },
   make06: {
-    label: 'Make 6: Build a digital map of AI\'s infrastructures',
+    label: 'Make 6: Geography of AI Power',
     makeUrl: '../makes/week06.html',
     description: 'Your answers point toward mapping, patterns in industries, and uncovering systemic inequalities.'
   },
