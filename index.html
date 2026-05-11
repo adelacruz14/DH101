@@ -164,10 +164,18 @@
 
       quizWelcomeModal.classList.add('is-hidden');
       document.body.classList.remove('has-quiz-modal');
+      sessionStorage.setItem('quizWelcomeDismissed', 'true');
     }
 
     if (quizWelcomeModal) {
-      document.body.classList.add('has-quiz-modal');
+      const quizWelcomeDismissed = sessionStorage.getItem('quizWelcomeDismissed') === 'true';
+
+      if (quizWelcomeDismissed) {
+        quizWelcomeModal.classList.add('is-hidden');
+      } else {
+        document.body.classList.add('has-quiz-modal');
+      }
+
       quizWelcomeClose?.addEventListener('click', closeQuizWelcome);
       quizWelcomeDismiss?.addEventListener('click', closeQuizWelcome);
       quizWelcomeModal.addEventListener('click', (event) => {
