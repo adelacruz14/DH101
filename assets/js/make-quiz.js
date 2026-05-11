@@ -22,7 +22,7 @@ const quizCategories = {
     description: 'Your answers point toward remixing, visual storytelling, ownership, and visual emphasis.'
   },
   make05: {
-    label: 'Make 5: Compare Voyant vs GPT text analysis',
+    label: 'Make 5: Critical Analysis with Algorithmic Tools',
     makeUrl: '../makes/week05.html',
     description: 'Your answers point toward critical analysis, textual interpretation, and making new meaning from existing media.'
   },
@@ -258,11 +258,16 @@ function MakePersonalityQuiz() {
   if (isComplete) {
     const tieLabels = result.tiedCategories.map((category) => quizCategories[category].label).join(' and ');
 
+    // Custom heading for make 5
+    let resultHeading = result.details.label;
+    if (result.winner === 'make05') {
+      resultHeading = 'Make 5: Critical Analysis with Algorithmic Tools';
+    }
     return React.createElement(
       'div',
       { className: 'quiz-shell quiz-results' },
       React.createElement('p', { className: 'quiz-eyebrow' }, 'Your make match'),
-      React.createElement('h3', { id: 'quiz-title' }, result.details.label),
+      React.createElement('h3', { id: 'quiz-title' }, resultHeading),
       React.createElement('p', { className: 'quiz-description' }, result.details.description),
       result.isTie &&
         React.createElement(
