@@ -183,6 +183,14 @@ main.container,
   box-shadow:0 3px 0 #041f67;
 }
 .quiz-welcome-dismiss{
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#071832;
+  font:inherit;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:underline;
   cursor:pointer;
 }
 .quiz-welcome-close{
