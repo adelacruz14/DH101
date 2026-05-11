@@ -32,7 +32,7 @@ const quizCategories = {
     description: 'Your answers point toward mapping, patterns in industries, and uncovering systemic inequalities.'
   },
   make07: {
-    label: 'Make 7: Networks of Knowledge & Power',
+    label: 'Make 7: Personal AI Network',
     makeUrl: '../makes/week07.html',
     description: 'Your answers point toward hidden structures, networking, and how digital tools connect us to industries.'
   },
