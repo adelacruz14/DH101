@@ -2,7 +2,7 @@ const { useEffect, useMemo, useState } = React;
 
 const quizCategories = {
   make01: {
-    label: 'Make 1: Reverse-engineer a DH/AI project',
+    label: 'Make 1: Google Ngram Viewer Analysis',
     makeUrl: '../makes/week01.html',
     description: 'Your answers point toward close looking, critcal analysis, and understanding how something was made.'
   },

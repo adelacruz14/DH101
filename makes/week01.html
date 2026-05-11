@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Week 1 Make | DH101</title>
+  <title>Google Ngram Viewer Analysis | DH101</title>
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
         </select>
         <select class="reflections-dropdown" onchange="window.location.href=this.value">
           <option value="" selected hidden>Makes</option>
-          <option value="week01.html">Week 01</option>
+          <option value="week01.html">Google Ngram Viewer Analysis</option>
           <option value="week02.html">Week 02</option>
           <option value="week03.html">Week 03</option>
           <option value="week04.html">Week 04</option>
@@ -52,31 +52,39 @@
 
   <main class="container page-shell">
     <section class="page-hero">
-      <h2>Week 1 - Reverse Engineering</h2>
-      <p>Weekly make page for DH101.</p>
+      <h2>Google Ngram Viewer Analysis</h2>
+      <p>A reverse-engineering analysis of Google Ngram Viewer as a digital humanities tool.</p>
     </section>
 
     <section class="page-content">
       <article class="content-card">
-        <h3>The Artifact</h3>
-        <p>Describe or embed your artifact here. Include images, links, or media as appropriate.</p>
+        <h3>Google Ngram Viewer (Culturomics)</h3>
+        <p><a class="btn" href="https://books.google.com/ngrams" target="_blank" rel="noopener">Open Google Ngram Viewer</a></p>
       </article>
       <article class="content-card">
-        <h3>Process Notes</h3>
-        <p>How did you make this? What tools did you use? What decisions did you make?</p>
+        <h3>1. What Is Being Made?</h3>
+        <p>This project creates a graph that demonstrates how frequently words are seen in published books over time. It allows users to scroll through the data points, and gives them the freedom to compare any words they want in a clean and easily understandable way.</p>
+      </article>
+      <article class="content-card">
+        <h3>2. What Is the Project Made From? (Data)</h3>
+        <p>The data is an analysis of word frequency in digitally scanned books in various languages that were collected by Google. The data accuracy may be limited by how well the digital converter interprets symbols and classifies words within context, like "book" as a noun or a verb. It also lacks data around how people actually spoke, as it only analyzes written and published work.</p>
+      </article>
+      <article class="content-card">
+        <h3>3. Tools, Algorithms, or Systems</h3>
+        <p>Google used OCR, or Optical Character Recognition, to convert books into a digital format so that computers could scan the text and create a database of words. When analyzing the context of a word, an automatic process labels the data based on a small training set. The searching of trends is guided by the user, but the data was collected by automation.</p>
+      </article>
+      <article class="content-card">
+        <h3>4. Human Labor & Decisions</h3>
+        <p>Researchers worked with libraries to create a text corpus that they saw as representative of all books. They organized what the OCR was looking for, and likely double-checked trends in the output. Engineers made algorithms to categorize the results, and decided how to normalize the data and what was considered significant enough to graph.</p>
+      </article>
+      <article class="content-card">
+        <h3>5. Design as Argument</h3>
+        <p>Google's Ngram Viewer is clear and simple to read, which means that it can be used by the general public to learn about language trends. It hides infrequencies and irrelevant statistics in the data, creating a visual of a smooth and general trend in language.</p>
       </article>
       <article class="content-card">
         <h3>Reflection</h3>
-        <p>Respond to this week's reflection prompt in 200-300 words.</p>
-      </article>
-      <article class="content-card">
-        <h3>Attribution and AI Use</h3>
-        <ul>
-          <li>Tools used:</li>
-          <li>AI prompts (summary):</li>
-          <li>What AI generated:</li>
-          <li>What you changed or decided:</li>
-        </ul>
+        <p>What humans can make alone is often not enough to answer large-scale questions, like how language trends change over time. In this project, "making" is taken from being an entirely human activity, and becomes a way to combine people-made components with automated processes. Google's information is sourced from work published by people over centuries, the language trends are shaped by how we speak and communicate, and the algorithms used to sort the data were created by humans and structured by human grammar.</p>
+        <p>However, these components do not come together easily; the data is sourced from millions of books, and it would be impossible to read and analyze the trends in all of them. Machines take these human-made parts and connect them, in order to use them for research. The "making" in this project happens when that technology combines all the information to create an informational output. When machines participate in making, they can take incredibly large sets of data and use them to answer questions that we would be unable to answer ourselves. Humans are still necessary to make, just like how they made the books and the rules for writing, but "making" in this project mixes humans and technology to take our knowledge a step further.</p>
       </article>
     </section>
 
@@ -90,3 +98,4 @@
   </footer>
 </body>
 </html>
+
