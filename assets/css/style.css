@@ -268,6 +268,7 @@ main.container,
 }
 .embed-frame-map{height:380px}
 .embed-frame-network{height:560px}
+.make-artifact-frame{height:720px}
 .card{background:linear-gradient(180deg, rgba(12,35,68,0.9), rgba(10,30,60,0.9));padding:18px;border-radius:var(--radius);border:1px solid rgba(126,207,255,0.06)}
 .quiz-cta-card{grid-area:quiz;grid-column:1 / -1;width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 .quiz-cta-card h3{margin:0;font-size:24px;line-height:1.35;color:var(--text)}
@@ -294,9 +295,7 @@ main.container,
 .resources-card a{color:#fff}
 .resources-card a:visited{color:#ff8ac7}
 .reflection-card{grid-area:reflection;padding:12px}
-.reflection-card .btn{
-  margin-top:12px;
-}
+.reflection-card .btn{margin-top:12px}
 .lead{color:var(--muted);margin-top:8px}
 .reflection h4{margin:0 0 8px}
 .actions{margin-top:12px}
@@ -372,6 +371,7 @@ main.container,
   .embeds-container .image-caption{width:100%}
   .embed-frame-map{height:300px}
   .embed-frame-network{height:420px}
+  .make-artifact-frame{height:560px}
   .quiz-cta-card .btn{white-space:normal}
   .quiz-answers{grid-template-columns:1fr}
   .quiz-answer{min-height:0}
