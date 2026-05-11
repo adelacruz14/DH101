@@ -54,22 +54,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.make-showcase').forEach((showcase) => {
     const slides = Array.from(showcase.querySelectorAll('.make-showcase-slide'));
+    const dotsContainer = showcase.querySelector('.make-showcase-dots');
+    const previousButton = showcase.querySelector('[data-carousel-action="previous"]');
+    const nextButton = showcase.querySelector('[data-carousel-action="next"]');
     let activeSlide = slides.findIndex((slide) => slide.classList.contains('is-active'));
     let rotationTimer;
 
-    if (slides.length < 2 || prefersReducedMotion) return;
+    if (slides.length < 2) return;
     if (activeSlide < 0) {
       activeSlide = 0;
       slides[activeSlide].classList.add('is-active');
     }
 
+    const dots = dotsContainer
+      ? slides.map((slide, index) => {
+          const dot = document.createElement('button');
+          dot.className = 'make-showcase-dot';
+          dot.type = 'button';
+          dot.setAttribute('aria-label', `Show make ${index + 1}`);
+          dotsContainer.appendChild(dot);
+          return dot;
+        })
+      : [];
+
+    function updateSlideState() {
+      slides.forEach((slide, index) => {
+        const isActive = index === activeSlide;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', String(!isActive));
+      });
+
+      dots.forEach((dot, index) => {
+        const isActive = index === activeSlide;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+      });
+    }
+
     function showSlide(nextSlide) {
-      slides[activeSlide].classList.remove('is-active');
       activeSlide = nextSlide;
-      slides[activeSlide].classList.add('is-active');
+      updateSlideState();
     }
 
     function startRotation() {
+      if (prefersReducedMotion) return;
       window.clearInterval(rotationTimer);
       rotationTimer = window.setInterval(() => {
         showSlide((activeSlide + 1) % slides.length);
@@ -80,10 +108,29 @@ document.addEventListener('DOMContentLoaded', () => {
       window.clearInterval(rotationTimer);
     }
 
+    previousButton?.addEventListener('click', () => {
+      pauseRotation();
+      showSlide((activeSlide - 1 + slides.length) % slides.length);
+      startRotation();
+    });
+    nextButton?.addEventListener('click', () => {
+      pauseRotation();
+      showSlide((activeSlide + 1) % slides.length);
+      startRotation();
+    });
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        pauseRotation();
+        showSlide(index);
+        startRotation();
+      });
+    });
+
     showcase.addEventListener('mouseenter', pauseRotation);
     showcase.addEventListener('mouseleave', startRotation);
     showcase.addEventListener('focusin', pauseRotation);
     showcase.addEventListener('focusout', startRotation);
+    updateSlideState();
     startRotation();
   });
 
