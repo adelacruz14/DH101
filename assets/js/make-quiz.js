@@ -198,7 +198,7 @@ const quizQuestions = [
     },
     {
       text: 'The hidden human or environmental costs behind AI systems',
-      scores: { make10: 2, make11: 2, make07: 1 }
+      scores: { make10: 1, make11: 2, make07: 1 }
     }
   ]
 }
