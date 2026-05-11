@@ -19,10 +19,6 @@ body{
   min-height:100vh;
   position:relative;
   background:
-    linear-gradient(125deg, transparent 0 12%, rgba(126,207,255,0.16) 12% 12.35%, transparent 12.35% 24%, rgba(10,190,176,0.14) 24% 24.35%, transparent 24.35% 100%),
-    repeating-linear-gradient(125deg, rgba(126,207,255,0.22) 0 3px, transparent 3px 46px),
-    repeating-linear-gradient(125deg, transparent 0 22px, rgba(10,190,176,0.2) 22px 25px, transparent 25px 72px),
-    repeating-linear-gradient(35deg, transparent 0 78px, rgba(126,207,255,0.08) 78px 80px, transparent 80px 156px),
     linear-gradient(145deg, #031225 0%, #082b58 42%, #0b3a6b 100%);
   background-attachment:fixed;
   background-size:auto;
@@ -200,6 +196,25 @@ main.container,
 .resources-card a{color:#fff}
 .resources-card a:visited{color:#ff8ac7}
 .reflection-card{grid-area:reflection;padding:12px}
+.reflection-card-link{
+  display:block;
+  color:var(--text);
+  text-decoration:none;
+  transition:border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.reflection-card-link:hover,
+.reflection-card-link:focus-visible{
+  border-color:rgba(126,207,255,0.32);
+  background:linear-gradient(180deg, rgba(126,207,255,0.12), rgba(10,30,60,0.92));
+  transform:translateY(-2px);
+}
+.reflection-card-link:focus-visible{
+  outline:2px solid var(--accent-2);
+  outline-offset:3px;
+}
+.reflection-card-link .btn{
+  margin-top:12px;
+}
 .lead{color:var(--muted);margin-top:8px}
 .reflection h4{margin:0 0 8px}
 .actions{margin-top:12px}
