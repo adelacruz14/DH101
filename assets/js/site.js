@@ -54,13 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.make-showcase').forEach((showcase) => {
     const slides = Array.from(showcase.querySelectorAll('.make-showcase-slide'));
+    const track = showcase.querySelector('.make-showcase-track');
     const dotsContainer = showcase.querySelector('.make-showcase-dots');
     const previousButton = showcase.querySelector('[data-carousel-action="previous"]');
     const nextButton = showcase.querySelector('[data-carousel-action="next"]');
     let activeSlide = slides.findIndex((slide) => slide.classList.contains('is-active'));
     let rotationTimer;
 
-    if (slides.length < 2) return;
+    if (slides.length < 2 || !track) return;
     if (activeSlide < 0) {
       activeSlide = 0;
       slides[activeSlide].classList.add('is-active');
@@ -81,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
       slides.forEach((slide, index) => {
         const isActive = index === activeSlide;
         slide.classList.toggle('is-active', isActive);
-        slide.setAttribute('aria-hidden', String(!isActive));
       });
 
       dots.forEach((dot, index) => {
@@ -89,6 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.classList.toggle('is-active', isActive);
         dot.setAttribute('aria-current', isActive ? 'true' : 'false');
       });
+
+      const activeElement = slides[activeSlide];
+      const showcaseCenter = showcase.clientWidth / 2;
+      const slideCenter = activeElement.offsetLeft + activeElement.offsetWidth / 2;
+      track.style.transform = `translateX(${showcaseCenter - slideCenter}px)`;
     }
 
     function showSlide(nextSlide) {
@@ -130,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showcase.addEventListener('mouseleave', startRotation);
     showcase.addEventListener('focusin', pauseRotation);
     showcase.addEventListener('focusout', startRotation);
+    window.addEventListener('resize', updateSlideState);
     updateSlideState();
     startRotation();
   });
