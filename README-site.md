@@ -6,7 +6,7 @@ This lightweight site was added to the repository root for a quick local preview
 - `assets/css/style.css` — styles used by the site
 
 Key section:
-- **My Reflection** — a short reflection block on the front page linking to `reflections/week01.md`.
+- **My Reflection** — a short reflection block on the front page linking to `reflections/week13.html`.
 
 To preview locally (simple HTTP server), run from the repository root:
 
