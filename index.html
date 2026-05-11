@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <div class="quiz-welcome-modal" role="dialog" aria-modal="true" aria-labelledby="quiz-welcome-title">
+    <div class="quiz-welcome-card">
+      <button class="quiz-welcome-close" type="button" aria-label="Close quiz suggestion">×</button>
+      <p class="quiz-welcome-eyebrow">Start Here</p>
+      <h2 id="quiz-welcome-title">Find a make that fits your interests</h2>
+      <p>Take the quick make quiz to get matched with a DH101 project before you explore the rest of the site.</p>
+      <div class="quiz-welcome-actions">
+        <a class="btn" href="pages/make-quiz.html">Take the make quiz</a>
+        <button class="btn ghost quiz-welcome-dismiss" type="button">Explore the site</button>
+      </div>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container">
       <p class="affirmation">You are capable, creative, and doing great work today ✨</p>
@@ -61,11 +74,11 @@
       <a class="btn" href="pages/make-quiz.html">Take the quiz</a>
     </section>
 
-    <a class="card reflection-card reflection-card-link" href="reflections/week13.html">
+    <section class="card reflection-card">
       <h3>My Reflection</h3>
       <p class="lead">An overall reflection on the DH101 course experience.</p>
-      <span class="btn">Read the reflection</span>
-    </a>
+      <a class="btn" href="reflections/week13.html">Read the reflection</a>
+    </section>
 
     <section class="card resources-card">
       <h3>Resources</h3>
@@ -140,8 +153,34 @@
     ];
     const affirmation = document.querySelector('.affirmation');
     const siteHeader = document.querySelector('.site-header');
+    const quizWelcomeModal = document.querySelector('.quiz-welcome-modal');
+    const quizWelcomeClose = document.querySelector('.quiz-welcome-close');
+    const quizWelcomeDismiss = document.querySelector('.quiz-welcome-dismiss');
     const starCount = 12;
     let starField;
+
+    function closeQuizWelcome() {
+      if (!quizWelcomeModal) return;
+
+      quizWelcomeModal.classList.add('is-hidden');
+      document.body.classList.remove('has-quiz-modal');
+    }
+
+    if (quizWelcomeModal) {
+      document.body.classList.add('has-quiz-modal');
+      quizWelcomeClose?.addEventListener('click', closeQuizWelcome);
+      quizWelcomeDismiss?.addEventListener('click', closeQuizWelcome);
+      quizWelcomeModal.addEventListener('click', (event) => {
+        if (event.target === quizWelcomeModal) {
+          closeQuizWelcome();
+        }
+      });
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeQuizWelcome();
+        }
+      });
+    }
 
     if (affirmation) {
       const randomIndex = Math.floor(Math.random() * affirmations.length);
