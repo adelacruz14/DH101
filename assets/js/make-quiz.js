@@ -17,8 +17,8 @@ const quizCategories = {
     description: 'Your answers point toward critical humor, visual storytelling, and creative sequencing.'
   },
   make04: {
-    label: 'Make 4: Gifs & Remix Culture',
-    makeUrl: '../index.html#make4',
+    label: 'Make 4: One of Many GIF',
+    makeUrl: '../makes/week04.html',
     description: 'Your answers point toward remixing, visual storytelling, ownership, and visual emphasis.'
   },
   make05: {
