@@ -14,14 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdown.parentNode.insertBefore(wrapper, dropdown);
     wrapper.appendChild(dropdown);
 
-    dropdown.addEventListener('pointerdown', () => {
-      wrapper.classList.remove('is-spinning');
-      void wrapper.offsetWidth;
-      wrapper.classList.add('is-spinning');
-    });
+    function openDropdownArrow() {
+      wrapper.classList.add('is-open');
+    }
 
-    wrapper.addEventListener('animationend', () => {
-      wrapper.classList.remove('is-spinning');
+    function closeDropdownArrow() {
+      wrapper.classList.remove('is-open');
+    }
+
+    dropdown.addEventListener('pointerdown', openDropdownArrow);
+    dropdown.addEventListener('focus', openDropdownArrow);
+    dropdown.addEventListener('change', closeDropdownArrow);
+    dropdown.addEventListener('blur', closeDropdownArrow);
+    dropdown.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' || event.key === 'Tab') {
+        closeDropdownArrow();
+      } else if (event.key === 'Enter' || event.key === ' ' || event.key === 'ArrowDown') {
+        openDropdownArrow();
+      }
     });
   });
 });

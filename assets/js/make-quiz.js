@@ -7,12 +7,12 @@ const quizCategories = {
     description: 'Your answers point toward close looking, critcal analysis, and understanding how something was made.'
   },
   make02: {
-    label: 'Make 2: AI Selfie',
+    label: 'Make 2: Personal Refined Selfie',
     makeUrl: '../makes/week02.html',
     description: 'Your answers point toward identity, image-making, and self-representation.'
   },
   make03: {
-    label: 'Make 3: Let\'s Make a Comic',
+    label: 'Make 3: A Funny Comic?',
     makeUrl: '../makes/week03.html',
     description: 'Your answers point toward critical humor, visual storytelling, and creative sequencing.'
   },

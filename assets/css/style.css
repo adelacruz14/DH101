@@ -259,19 +259,16 @@ main.container,
   pointer-events:none;
   transform:translateY(-2px) rotate(45deg);
   transform-origin:center;
+  transition:transform 0.22s ease;
 }
-.dropdown-wrap.is-spinning::after{
-  animation:dropdown-arrow-spin 0.42s ease;
+.dropdown-wrap.is-open::after{
+  transform:translateY(2px) rotate(225deg);
 }
 .dropdown-wrap--reflections .reflections-dropdown{
   width:116px;
 }
 .dropdown-wrap--makes .reflections-dropdown{
   width:82px;
-}
-@keyframes dropdown-arrow-spin{
-  from{transform:translateY(-2px) rotate(45deg)}
-  to{transform:translateY(-2px) rotate(405deg)}
 }
 .reflections-dropdown{appearance:none;-webkit-appearance:none;width:auto;field-sizing:content;background:transparent;color:var(--accent-2);border:none;border-radius:6px;padding:8px 28px 8px 12px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s ease}
 .reflections-dropdown option{color:rgb(255, 255, 255);background-color:var(--card)}
@@ -405,6 +402,44 @@ main.container,
 .content-card li + li{margin-top:8px}
 .make-page-figure{margin:0}
 .make-page-figure img{display:block;width:min(100%,520px);height:auto;border-radius:8px;border:1px solid rgba(126,207,255,0.12)}
+.comic-artifact img{
+  width:min(100%,720px);
+  margin:0 auto;
+}
+.selfie-comparison{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  align-items:start;
+}
+.selfie-comparison-item img,
+.selfie-placeholder{
+  width:100%;
+  aspect-ratio:4 / 5;
+  object-fit:cover;
+}
+.selfie-placeholder{
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:8px;
+  min-height:320px;
+  padding:24px;
+  border:1px dashed rgba(126,207,255,0.42);
+  border-radius:8px;
+  background:linear-gradient(180deg, rgba(126,207,255,0.08), rgba(111,82,255,0.08));
+  color:var(--text);
+  text-align:center;
+}
+.selfie-placeholder span{
+  color:var(--accent-2);
+  font-weight:800;
+  font-size:20px;
+}
+.selfie-placeholder small{
+  color:var(--muted);
+  line-height:1.4;
+}
 .note-card{
   background:linear-gradient(180deg, rgba(126,207,255,0.08), rgba(110,92,255,0.06));
 }
@@ -602,6 +637,12 @@ main.container,
   .make-item,
   #make3{
     max-width:100%;
+  }
+  .selfie-comparison{
+    grid-template-columns:1fr;
+  }
+  .selfie-placeholder{
+    min-height:260px;
   }
   .image-caption,
   .embed-caption{
