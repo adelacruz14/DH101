@@ -1,6 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const themeKey = 'dh101Theme';
   const reducedMotionKey = 'dh101ReducedMotion';
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function getSavedTheme() {
+    try {
+      return window.localStorage.getItem(themeKey) || 'dark';
+    } catch (error) {
+      return 'dark';
+    }
+  }
+
+  function saveTheme(theme) {
+    try {
+      window.localStorage.setItem(themeKey, theme);
+    } catch (error) {
+      return;
+    }
+  }
+
+  function applyTheme(theme) {
+    const isLight = theme === 'light';
+    document.body.classList.toggle('light-mode', isLight);
+    document.querySelectorAll('[data-theme-toggle]').forEach((toggle) => {
+      toggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+      toggle.textContent = isLight ? 'Dark mode' : 'Light mode';
+    });
+  }
+
+  applyTheme(getSavedTheme());
 
   function getSavedReducedMotion() {
     try {
@@ -71,6 +99,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomIndex = Math.floor(Math.random() * affirmations.length);
     affirmation.textContent = affirmations[randomIndex];
   }
+
+  document.querySelectorAll('.site-nav').forEach((nav) => {
+    if (nav.querySelector('[data-theme-toggle]')) return;
+
+    const themeToggle = document.createElement('button');
+    themeToggle.className = 'theme-toggle';
+    themeToggle.type = 'button';
+    themeToggle.setAttribute('data-theme-toggle', '');
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.body.classList.contains('light-mode') ? 'dark' : 'light';
+      saveTheme(nextTheme);
+      applyTheme(nextTheme);
+    });
+    nav.appendChild(themeToggle);
+  });
+
+  applyTheme(getSavedTheme());
 
   document.querySelectorAll('[data-reduced-motion-toggle]').forEach((toggle) => {
     toggle.addEventListener('change', () => {
