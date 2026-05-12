@@ -834,6 +834,11 @@ main.container,
   .make-showcase-slide .embed-frame{
     height:210px;
   }
+  .make-showcase-slide .image-caption,
+  .embeds-container .image-caption{
+    font-size:11px;
+    line-height:1.35;
+  }
   .hero,
   .card,
   .makes-section,
@@ -945,6 +950,11 @@ main.container,
   }
   .make-showcase-slide .embed-frame{
     height:185px;
+  }
+  .make-showcase-slide .image-caption,
+  .embeds-container .image-caption{
+    font-size:10px;
+    line-height:1.3;
   }
   .make-item,
   #make3{
