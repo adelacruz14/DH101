@@ -665,6 +665,14 @@ main.container,
 .wide-artifact + .wide-artifact{
   margin-top:18px;
 }
+.future-artifact{
+  max-width:680px;
+  margin:0 auto;
+}
+.future-artifact img{
+  width:100%;
+  max-width:100%;
+}
 .comic-artifact{
   max-width:720px;
   margin:0 auto;

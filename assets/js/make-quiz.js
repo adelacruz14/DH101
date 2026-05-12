@@ -57,7 +57,7 @@ const quizCategories = {
     description: 'Your answers point toward environmental consequences, sustainability, and data visualization.'
   },
   make12: {
-    label: 'Make 12: Futures of AI & Humanity',
+    label: 'Make 12: A Future Breakup',
     makeUrl: '../makes/week12.html',
     description: 'Your answers point toward forward thinking, perspective shifting, and critical reflection.'
   }
