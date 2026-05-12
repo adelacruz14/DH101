@@ -56,6 +56,7 @@
           <li>Adding clear, concise alt text to all images</li>
           <li>Using high-contrast color combinations</li>
           <li>Ensuring images are large enough to be easily viewed</li>
+          <li>Adding a reduced motion toggle to help control the animation viewing comfort</li>
         </ul>
       </article>
       <article class="content-card">
@@ -65,7 +66,14 @@
             <strong>Reduce motion</strong>
             <span>Turn off most animations, page fades, and automatic carousel movement.</span>
           </span>
-          <input type="checkbox" data-reduced-motion-toggle>
+          <span class="motion-switch">
+            <input type="checkbox" data-reduced-motion-toggle>
+            <span class="motion-switch-track" aria-hidden="true">
+              <span class="motion-switch-label motion-switch-label-off">Off</span>
+              <span class="motion-switch-label motion-switch-label-on">On</span>
+              <span class="motion-switch-thumb"></span>
+            </span>
+          </span>
         </label>
       </article>
       <article class="content-card">
