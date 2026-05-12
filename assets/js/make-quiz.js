@@ -42,7 +42,7 @@ const quizCategories = {
     description: 'Your answers point toward boundary exploration, generation, and algorithmic production.'
   },
   make09: {
-    label: 'Make 9: Games and Play',
+    label: 'Make 9: Moderating within a System',
     makeUrl: '../makes/week09.html',
     description: 'Your answers point toward creativty under rules, playful systems, and an exploration of ethics.'
   },
