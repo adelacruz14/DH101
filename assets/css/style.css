@@ -800,6 +800,15 @@ body.reduce-motion .embed-frame:hover{
   width:100%;
   max-width:100%;
 }
+.resume-frame{
+  display:block;
+  width:100%;
+  min-height:720px;
+  margin-top:16px;
+  border:1px solid rgba(126,207,255,0.18);
+  border-radius:8px;
+  background:rgba(255,255,255,0.06);
+}
 .comic-artifact{
   max-width:720px;
   margin:0 auto;
