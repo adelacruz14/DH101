@@ -52,7 +52,7 @@ const quizCategories = {
     description: 'Your answers point toward hidden labor, uncovered truth, and visual storytelling.'
   },
   make11: {
-    label: 'Make 11: AI & Ecology',
+    label: 'Make 11: Your AI Footprint',
     makeUrl: '../makes/week11.html',
     description: 'Your answers point toward environmental consequences, sustainability, and data visualization.'
   },

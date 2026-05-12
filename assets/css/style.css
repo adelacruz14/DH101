@@ -657,6 +657,14 @@ main.container,
 .content-card li + li{margin-top:8px}
 .make-page-figure{margin:0}
 .make-page-figure img{display:block;width:min(100%,520px);height:auto;border-radius:8px;border:1px solid rgba(126,207,255,0.12)}
+.wide-artifact img{
+  width:100%;
+  max-width:100%;
+  margin:0 auto;
+}
+.wide-artifact + .wide-artifact{
+  margin-top:18px;
+}
 .comic-artifact{
   max-width:720px;
   margin:0 auto;
