@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = showcase.querySelector('[data-carousel-action="next"]');
     let activeSlide = originalSlides.findIndex((slide) => slide.classList.contains('is-active'));
     let rotationTimer;
+    let animationUnlockTimer;
     let isAnimating = false;
 
     if (originalSlides.length < 2 || !track) return;
@@ -184,7 +185,16 @@ document.addEventListener('DOMContentLoaded', () => {
         activeSlide = trackIndex - 1;
       }
 
-      updateSlideState();
+      updateSlideState({ animate: !reduceMotionEnabled });
+
+      if (reduceMotionEnabled) {
+        isAnimating = false;
+      } else {
+        window.clearTimeout(animationUnlockTimer);
+        animationUnlockTimer = window.setTimeout(() => {
+          isAnimating = false;
+        }, 1100);
+      }
     }
 
     function startRotation() {
@@ -229,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       isAnimating = false;
+      window.clearTimeout(animationUnlockTimer);
     });
 
     showcase.addEventListener('mouseenter', pauseRotation);
