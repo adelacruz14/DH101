@@ -47,7 +47,7 @@ const quizCategories = {
     description: 'Your answers point toward creativty under rules, playful systems, and an exploration of ethics.'
   },
   make10: {
-    label: 'Make 10: AI & Labor',
+    label: 'Make 10: Labor Behind Your Safety',
     makeUrl: '../makes/week10.html',
     description: 'Your answers point toward hidden labor, uncovered truth, and visual storytelling.'
   },
