@@ -36,11 +36,6 @@ const quizCategories = {
     makeUrl: '../makes/week07.html',
     description: 'Your answers point toward hidden structures, networking, and how digital tools connect us to industries.'
   },
-  make08: {
-    label: 'Make 8: Build a bot or generator using a no-code AI tool',
-    makeUrl: '../makes/week08.html',
-    description: 'Your answers point toward boundary exploration, generation, and algorithmic production.'
-  },
   make09: {
     label: 'Make 9: Moderating within a System',
     makeUrl: '../makes/week09.html',
@@ -73,7 +68,7 @@ const quizQuestions = [
     },
     {
       text: 'Building something interactive, playful, or generative',
-      scores: { make08: 3, make09: 3 }
+      scores: { make09: 3 }
     },
     {
       text: 'Investigating systems, patterns, or real-world issues',
@@ -90,7 +85,7 @@ const quizQuestions = [
     },
     {
       text: 'I tweak and experiment until something unexpected happens',
-      scores: { make08: 3, make09: 3 }
+      scores: { make09: 3 }
     },
     {
       text: 'I research, study data, and analyze structures before creating',
@@ -107,7 +102,7 @@ const quizQuestions = [
     },
     {
       text: 'Let them interact, play, or explore',
-      scores: { make08: 3, make09: 3 }
+      scores: { make09: 3 }
     },
     {
       text: 'Help them understand a bigger issue',
@@ -120,7 +115,7 @@ const quizQuestions = [
   answers: [
     {
       text: 'Very open-ended, so I can figure it out as I go',
-      scores: { make03: 3, make04: 3, make08: 3 }
+      scores: { make03: 3, make04: 3 }
     },
     {
       text: 'A mix, with some guidance but room to explore',
@@ -152,7 +147,6 @@ const quizQuestions = [
         make05: 3,
         make06: 3,
         make07: 3,
-        make08: 2,
         make09: 2
       }
     },
@@ -177,7 +171,7 @@ const quizQuestions = [
     },
     {
       text: 'In-between, about systems, tools, and interactions',
-      scores: { make04: 2, make08: 3, make09: 3, make01: 2 }
+      scores: { make04: 2, make09: 3, make01: 2 }
     },
     {
       text: 'Big picture, about society, environments, and the future',
