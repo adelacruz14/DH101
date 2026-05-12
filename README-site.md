@@ -1,12 +1,9 @@
-# DH101 — Local Site
+# DH101
 
-This lightweight site was added to the repository root for a quick local preview. Files created:
-
-- `index.html` — site entry
-- `assets/css/style.css` — styles used by the site
-
-Key section:
-- **My Reflection** — a short reflection block on the front page linking to `reflections/week13.html`.
+Key sections:
+Makes - a collection of makes from this semester
+Pages - collection of information, including the about me, accessibility, how i use ai, sustainability, and quiz page
+Reflections - choice key reflections from the semester
 
 To preview locally (simple HTTP server), run from the repository root:
 
@@ -17,4 +14,4 @@ python -m http.server 8000
 # then open http://localhost:8000 in your browser
 ```
 
-Or open `index.html` directly in your browser. The site links to repository markdown files under `pages/`, `makes/`, and `reflections/`.
+Or open `https://adelacruz14.github.io/DH101/index.html` directly in your browser. The site links to repository html files under `pages/`, `makes/`, and `reflections/`.

@@ -1,4 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const reducedMotionKey = 'dh101ReducedMotion';
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function getSavedReducedMotion() {
+    try {
+      return window.localStorage.getItem(reducedMotionKey) === 'true';
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function saveReducedMotion(shouldReduce) {
+    try {
+      window.localStorage.setItem(reducedMotionKey, shouldReduce ? 'true' : 'false');
+    } catch (error) {
+      return;
+    }
+  }
+
+  function isReducedMotionEnabled() {
+    return motionQuery.matches || getSavedReducedMotion();
+  }
+
+  function applyReducedMotionPreference() {
+    const shouldReduce = isReducedMotionEnabled();
+    document.body.classList.toggle('reduce-motion', shouldReduce);
+    document.querySelectorAll('[data-reduced-motion-toggle]').forEach((toggle) => {
+      toggle.checked = shouldReduce;
+    });
+    return shouldReduce;
+  }
+
+  let reduceMotionEnabled = applyReducedMotionPreference();
+
   const affirmations = [
     'You are capable, creative, and doing great work today.',
     'Your ideas are worth following all the way through.',
@@ -38,10 +72,21 @@ document.addEventListener('DOMContentLoaded', () => {
     affirmation.textContent = affirmations[randomIndex];
   }
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-reduced-motion-toggle]').forEach((toggle) => {
+    toggle.addEventListener('change', () => {
+      saveReducedMotion(toggle.checked);
+      reduceMotionEnabled = applyReducedMotionPreference();
+      window.dispatchEvent(new CustomEvent('reducedmotionchange', { detail: { reduceMotionEnabled } }));
+    });
+  });
+
+  motionQuery.addEventListener('change', () => {
+    reduceMotionEnabled = applyReducedMotionPreference();
+    window.dispatchEvent(new CustomEvent('reducedmotionchange', { detail: { reduceMotionEnabled } }));
+  });
 
   function navigateWithTransition(url) {
-    if (prefersReducedMotion) {
+    if (reduceMotionEnabled) {
       window.location.href = url;
       return;
     }
@@ -143,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startRotation() {
-      if (prefersReducedMotion) return;
+      if (reduceMotionEnabled) return;
       window.clearInterval(rotationTimer);
       rotationTimer = window.setInterval(() => {
         showSlide(trackIndex + 1);
@@ -190,6 +235,16 @@ document.addEventListener('DOMContentLoaded', () => {
     showcase.addEventListener('mouseleave', startRotation);
     showcase.addEventListener('focusin', pauseRotation);
     showcase.addEventListener('focusout', startRotation);
+    window.addEventListener('reducedmotionchange', (event) => {
+      reduceMotionEnabled = event.detail.reduceMotionEnabled;
+      if (reduceMotionEnabled) {
+        pauseRotation();
+        isAnimating = false;
+        updateSlideState({ animate: false });
+      } else {
+        startRotation();
+      }
+    });
     window.addEventListener('resize', () => updateSlideState({ animate: false }));
     updateSlideState({ animate: false });
     startRotation();
