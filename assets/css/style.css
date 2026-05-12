@@ -346,8 +346,9 @@ main.container,
 }
 .main-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;grid-template-areas:"hero hero" "quiz quiz" "reflection resources"}
 .hero{grid-area:hero;display:grid;grid-template-columns:1fr;gap:24px;align-items:center;background:linear-gradient(180deg, rgba(8,46,86,0.92), rgba(10,48,92,0.96));padding:24px;border-radius:var(--radius);box-shadow:0 18px 60px rgba(6,8,30,0.6);animation:content-rise 0.55s ease 0.06s both}
+.hero-copy{text-align:center}
 .hero-copy h2{margin-top:0}
-.hero-copy p{margin-bottom:0;line-height:1.65;color:var(--muted)}
+.hero-copy p{margin:0 auto;max-width:680px;line-height:1.65;color:var(--muted)}
 .make-showcase{
   position:relative;
   min-height:430px;
@@ -368,14 +369,15 @@ main.container,
 .make-showcase::before{
   content:"Images and Interactive Elements from Makes";
   position:absolute;
-  top:12px;
-  left:14px;
+  top:14px;
+  left:18px;
+  right:18px;
   z-index:3;
   color:var(--accent-2);
-  font-size:11px;
+  font-size:18px;
   font-weight:800;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
+  line-height:1.2;
+  text-align:center;
 }
 .make-showcase-track{
   position:absolute;
@@ -386,9 +388,13 @@ main.container,
   align-items:center;
   gap:20px;
   height:100%;
-  padding:50px 0 64px;
+  padding:62px 0 64px;
   transition:transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
   will-change:transform;
+}
+.make-showcase.is-resetting .make-showcase-track,
+.make-showcase.is-resetting .make-showcase-slide{
+  transition:none !important;
 }
 .make-showcase-slide{
   display:flex;
@@ -521,7 +527,7 @@ main.container,
 .make-artifact-frame{height:720px}
 .card{background:linear-gradient(180deg, rgba(12,35,68,0.9), rgba(10,30,60,0.9));padding:18px;border-radius:var(--radius);border:1px solid rgba(126,207,255,0.06);transition:transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;animation:content-rise 0.55s ease both}
 .card:hover{transform:translateY(-3px);border-color:rgba(126,207,255,0.22);box-shadow:0 14px 36px rgba(0,0,0,0.22)}
-.quiz-cta-card{grid-area:quiz;grid-column:1 / -1;width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.quiz-cta-card{grid-area:quiz;grid-column:1 / -1;width:100%;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
 .quiz-cta-card h3{margin:0;font-size:24px;line-height:1.35;color:var(--text)}
 .quiz-cta-card p{margin:0;color:var(--muted);line-height:1.6}
 .quiz-cta-card h3,.quiz-cta-card p,.quiz-cta-card .btn{display:block}
@@ -809,10 +815,11 @@ main.container,
     grid-template-columns:1fr;
   }
   .make-showcase{
-    min-height:390px;
+    min-height:410px;
   }
   .make-showcase-track{
     gap:14px;
+    padding-top:76px;
   }
   .make-showcase-slide{
     flex-basis:78%;
@@ -911,11 +918,16 @@ main.container,
     gap:16px;
   }
   .make-showcase{
-    min-height:360px;
+    min-height:390px;
   }
   .make-showcase::before{
     right:14px;
+    left:14px;
+    font-size:16px;
     text-align:center;
+  }
+  .make-showcase-track{
+    padding-top:78px;
   }
   .make-showcase-slide{
     flex-basis:82%;

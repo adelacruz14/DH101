@@ -96,12 +96,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const showcaseCenter = showcase.clientWidth / 2;
       const slideCenter = activeElement.offsetLeft + activeElement.offsetWidth / 2;
 
+      showcase.classList.toggle('is-resetting', !animate);
       track.style.transition = animate ? '' : 'none';
       track.style.transform = `translateX(${showcaseCenter - slideCenter}px)`;
 
       if (!animate) {
         void track.offsetWidth;
         track.style.transition = '';
+        window.requestAnimationFrame(() => {
+          showcase.classList.remove('is-resetting');
+        });
       }
     }
 
@@ -122,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showSlide(nextIndex) {
       if (isAnimating) return;
+      if (nextIndex === trackIndex) return;
 
       isAnimating = true;
       trackIndex = nextIndex;
@@ -167,7 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    track.addEventListener('transitionend', () => {
+    track.addEventListener('transitionend', (event) => {
+      if (event.propertyName !== 'transform') return;
+
       if (trackIndex === 0) {
         trackIndex = originalSlides.length;
         updateSlideState({ animate: false });
